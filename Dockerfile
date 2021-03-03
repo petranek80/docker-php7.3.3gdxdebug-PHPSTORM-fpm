@@ -18,6 +18,7 @@ RUN apt-get update && apt-get upgrade -y \
     libicu-dev \
     g++ \
     libxml2-dev \
+    libjpeg-dev \    
     && pear install -a SOAP-0.13.0 \
     && docker-php-ext-install \
         iconv \
