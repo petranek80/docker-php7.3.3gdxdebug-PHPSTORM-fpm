@@ -17,7 +17,7 @@ RUN apt-get update && apt-get upgrade -y \
     libicu-dev \
     g++ \
     libxml2-dev \
-    libjpeg-dev \    
+    libjpeg-dev \
     && pear install -a SOAP-0.13.0 \
     && docker-php-ext-install \
         iconv \
@@ -28,7 +28,8 @@ RUN apt-get update && apt-get upgrade -y \
         sysvshm \
         sysvmsg \
         soap \
-        gd \        
+    && docker-php-ext-configure gd --with-jpeg && \
+    && docker-php-ext-install gd \
     && docker-php-ext-configure intl  \
     && docker-php-ext-install intl \
     && pecl install memcached && docker-php-ext-enable memcached \
@@ -41,4 +42,3 @@ RUN echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.
 RUN echo "xdebug.client_host=127.0.0.1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.client_port=9003" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-
