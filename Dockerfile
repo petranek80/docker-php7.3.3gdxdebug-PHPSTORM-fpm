@@ -28,7 +28,7 @@ RUN apt-get update && apt-get upgrade -y \
         sysvshm \
         sysvmsg \
         soap \
-    && docker-php-ext-configure gd --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd \
     && docker-php-ext-configure intl  \
     && docker-php-ext-install intl \
