@@ -8,7 +8,6 @@ RUN apt-get update && apt-get upgrade -y \
     libpq-dev \
     libmagickwand-dev \
     libmcrypt-dev \
-    libmcrypt-dev \
     libpng-dev \
     libmemcached-dev \
     libssl-dev \
